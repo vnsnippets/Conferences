@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Chatton",
+    "slug": "Project-Chatton",
+    "description": "Project-Chatton is an application designed to demo the use of React Native in a chat application - for Mauritius Developers' Conference 2019.",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#101010"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.novastudio.project.chatton",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.novastudio.project.chatton"
+    },
+    "primaryColor": "#222222"
+  }
+}
