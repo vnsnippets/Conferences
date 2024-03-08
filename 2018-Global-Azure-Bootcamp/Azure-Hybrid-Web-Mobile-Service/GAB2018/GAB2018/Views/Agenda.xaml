@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GAB2018.Views.Agenda"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackLayout Margin="0,0,0,0"
+                             Padding="0,10,0,0"
+                             VerticalOptions="FillAndExpand" 
+                             HorizontalOptions="FillAndExpand"
+                             BackgroundColor="{StaticResource Key=Gray}">
+                    <Label VerticalOptions="Start"
+                           HorizontalOptions="Center" 
+                           TextColor="White"
+                           Text="AGENDA" />
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Margin="15,40,15,0"
+                         BackgroundColor="White"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand">
+                <ListView xmlns:LOCAL="clr-namespace:GAB2018.Behaviors;assembly=GAB2018"
+                          x:Name="ItemsListView" 
+                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                          RefreshCommand="{Binding LoadItemsCommand}"
+                          ItemsSource="{Binding Items}"     
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          CachingStrategy="RecycleElement">
+
+                    <ListView.Behaviors>
+                        <LOCAL:EventCommand EventName="ItemSelected" Command="{Binding OpenItemCommand}" />
+                    </ListView.Behaviors>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid>
+                                            <StackLayout Spacing="0" VerticalOptions="Center">
+                                                <Label TextColor="Black" FontSize="Medium" Text="{Binding Date, Converter={StaticResource Key=DateToShortDate}}"></Label>
+                                                <Label TextColor="Gray" FontSize="Micro" Text="{Binding Date, Converter={StaticResource Key=DateToShortMonth}}"></Label>
+                                            </StackLayout>
+                                        </Grid>
+                                        <StackLayout Grid.Column="1" Padding="10,0,0,0" VerticalOptions="Center" Spacing="0">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label TextColor="Gray" FontSize="Micro" Text="{Binding Start, Converter={StaticResource Key=TimeToString}}"></Label>
+                                                <Label TextColor="Gray" FontSize="Micro" Text="-"></Label>
+                                                <Label TextColor="Gray" FontSize="Micro" Text="{Binding End, Converter={StaticResource Key=TimeToString}}"></Label>
+                                            </StackLayout>
+                                            <Label TextColor="Black" FontSize="Small" Text="{Binding Title}"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

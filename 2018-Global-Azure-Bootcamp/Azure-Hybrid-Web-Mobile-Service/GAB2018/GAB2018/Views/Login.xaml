@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GAB2018.Views.Login"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackLayout VerticalOptions="FillAndExpand" 
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundColor="{StaticResource Key=Gray}">
+            </StackLayout>
+
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="70*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid VerticalOptions="FillAndExpand" 
+                      HorizontalOptions="FillAndExpand"
+                      Padding="0,20,0,0">
+                    <Image Source="logo.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+                </Grid>
+
+                <StackLayout Grid.Row="1" 
+                             Margin="15" 
+                             Padding="15"
+                             BackgroundColor="White"
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand">
+                    <ScrollView VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="CenterAndExpand">
+                        <StackLayout Spacing="10">
+                            <Label Text="WELCOMETO GAB!"
+                                   VerticalOptions="CenterAndExpand" 
+                                   HorizontalOptions="CenterAndExpand" />
+
+                            <Label Text="On April 21, 2018, all communities will come together once again in the sixth great Global Azure Bootcamp event! Each user group will organize their own one day deep dive class on Azure the way they see fit and how it works for their members. The result is that thousands of people get to learn about Azure and join together online under the social hashtag #GlobalAzure!"
+                                   TextColor="Black"         
+                                   VerticalOptions="CenterAndExpand" 
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"/>   
+
+                            <Button Command="{Binding LoadAgendaCommand}"
+                                    BackgroundColor="WhiteSmoke"
+                                    Margin="40,0,40,0"
+                                    TextColor="Black"
+                                    Text="LET'S BEGIN">
+                            </Button>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

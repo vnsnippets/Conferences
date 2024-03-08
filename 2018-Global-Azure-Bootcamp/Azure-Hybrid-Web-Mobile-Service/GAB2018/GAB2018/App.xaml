@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             xmlns:CONVERTERS="clr-namespace:GAB2018.Converters;assembly=GAB2018"
+             x:Class="GAB2018.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+
+        <ResourceDictionary>
+            <Color x:Key="Gray">#424242</Color>
+            <Color x:Key="Twitter">#1DA1F2</Color>
+
+            <CONVERTERS:DateToShortDateConverter x:Key="DateToShortDate"/>
+            <CONVERTERS:DateToShortMonthConverter x:Key="DateToShortMonth"/>
+            <CONVERTERS:TimeSpanToString x:Key="TimeToString"/>
+        </ResourceDictionary>
+
+	</Application.Resources>
+</prism:PrismApplication>
