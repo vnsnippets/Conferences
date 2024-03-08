@@ -1,0 +1,26 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VisionUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="VisionUWP.SubscriptionPage"
+    mc:Ignorable="d"
+    DataContext="{StaticResource VMLocator}">
+
+    <Grid x:Name="LayoutRoot" VerticalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Margin="19" HorizontalAlignment="Center">GET YOUR SUBSCRIPTION KEY AT MICROSOFT.COM/COGNITIVE AND INSERT HERE.</TextBlock>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center">[THE KEY NEEDS TO BE INSERTED ONLY ON FOR THE FIRST TIME]</TextBlock>
+        <TextBox x:Name="TXTVisionKey" Grid.Row="2" TextAlignment="Center" HorizontalAlignment="Center" Margin="19" Width="512" Text="{Binding MainLocator.VisionKey, Mode=TwoWay}"/>
+        <Button x:Name="BTNSaveKey" Grid.Row="3" Content="SAVE VISION KEY" HorizontalAlignment="Center" Height="48" Padding="19,0" Command="{Binding MainLocator.SaveVisionKey}"/>
+
+    </Grid>
+</Page>
